@@ -32,36 +32,36 @@ OTHER DEALINGS IN THE SOFTWARE.
 """
 
 school_data = [['Computer Science', 235, 3.44,
-				datetime(2015, 7, 23, 18, 0, 0)],
-			   ['Chemistry', 201, 3.26,
-			   datetime(2015, 7, 25, 9, 30, 0)],
-			   ['Forensics', 99, 3.8,
-			   datetime(2015, 7, 23, 9, 30, 0)],
-			   ['Astronomy', 115, 3.21,
-			   datetime(2015, 7, 19, 15, 30, 0)]]
+                    datetime(2015, 7, 23, 18, 0, 0)],
+               ['Chemistry', 201, 3.26,
+                    datetime(2015, 7, 25, 9, 30, 0)],
+               ['Forensics', 99, 3.8,
+                    datetime(2015, 7, 23, 9, 30, 0)],
+               ['Astronomy', 115, 3.21,
+                    datetime(2015, 7, 19, 15, 30, 0)]]
 
 
 def write_xlsx(data):
-	"""
-	The write_xlsx function creates an XLSX spreadsheet from a
-	list of lists
-	:param data: A list of lists to be written in the spreadsheet
-	:return: Nothing
-	"""
-	workbook = xlsxwriter.Workbook('MyWorkbook.xlsx')
-	main_sheet = workbook.add_worksheet('MySheet')
+    """
+    The write_xlsx function creates an XLSX spreadsheet from a
+    list of lists
+    :param data: A list of lists to be written in the spreadsheet
+    :return: Nothing
+    """
+    workbook = xlsxwriter.Workbook('MyWorkbook.xlsx')
+    main_sheet = workbook.add_worksheet('MySheet')
 
-	date_format = workbook.add_format(
-	{'num_format': 'mm/dd/yy hh:mm:ss AM/PM'})
-	length = str(len(data) + 1)
-	
-	main_sheet.add_table(('A1:D' + length),
-	{'data': data,
-	'columns': [{'header': 'Department'}, {'header': 'Students'},
-				{'header': 'Cumulative GPA'},
-				{'header': 'Final Date', 'format': date_format}]})
-	
-	workbook.close()
+    date_format = workbook.add_format(
+        {'num_format': 'mm/dd/yy hh:mm:ss AM/PM'})
+    length = str(len(data) + 1)
+
+    main_sheet.add_table(('A1:D' + length),
+        {'data': data,
+         'columns': [{'header': 'Department'}, {'header': 'Students'},
+                     {'header': 'Cumulative GPA'},
+                     {'header': 'Final Date', 'format': date_format}]})
+
+    workbook.close()
 
 
 write_xlsx(school_data)

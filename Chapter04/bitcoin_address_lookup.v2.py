@@ -107,7 +107,7 @@ def print_transactions(account):
             else:
                 logging.warn(
                     'Detected 0 inputs for transaction {}').format(
-                    tx['hash'])
+                        tx['hash'])
                 print('Detected 0 inputs for transaction.')
 
         print('{:=^22}\n'.format(''))
@@ -140,7 +140,7 @@ def get_inputs(tx):
     """
     inputs = []
     for input_addr in tx['inputs']:
-            inputs.append(input_addr['prev_out']['addr'])
+        inputs.append(input_addr['prev_out']['addr'])
     return inputs
 
 if __name__ == '__main__':

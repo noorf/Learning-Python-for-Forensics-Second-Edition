@@ -114,7 +114,7 @@ def parse_transactions(account, output_dir):
             outputs[output['addr']] = output['value'] * 10**-8
         transaction.append('\n'.join(outputs.keys()))
         transaction.append(
-        '\n'.join(str(v) for v in outputs.values()))
+                '\n'.join(str(v) for v in outputs.values()))
         transaction.append('{:.8f}'.format(sum(outputs.values())))
         transactions.append(transaction)
     csv_writer(transactions, output_dir)
@@ -135,7 +135,7 @@ def print_header(account):
     print('Total Received: {:.8f} BTC'.format(
         account['total_received'] * 10**-8))
     print('Number of Transactions:', account['n_tx'])
-    
+
     print('{:=^22}\n'.format(''))
 
 
@@ -167,7 +167,7 @@ def csv_writer(data, output_dir):
     logging.info('Writing output to {}'.format(output_dir))
     print('Writing output.')
     headers = ['Index', 'Date', 'Transaction Hash',
-        'Inputs', 'Outputs', 'Values', 'Total']
+               'Inputs', 'Outputs', 'Values', 'Total']
     try:
         if sys.version_info[0] == 2:
             csvfile = open(output_dir, 'wb')
@@ -183,7 +183,7 @@ def csv_writer(data, output_dir):
     except IOError as e:
         logging.error("""Error writing output to {}.
            \nGenerated message: {}.""".format(e.filename,
-                e.strerror))
+                                              e.strerror))
         print("""Error writing to CSV file.
             Please check output argument {}""".format(e.filename))
         logging.info('Program exiting.')

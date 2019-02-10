@@ -365,6 +365,6 @@ if __name__ == '__main__':
     logger.debug('Version ' + sys.version)
 
     args_dict = {'custodian': args.CUSTODIAN,
-        'target': arg_source, 'db': args.DB_PATH}
+                 'target': arg_source, 'db': args.DB_PATH}
 
     main(**args_dict)

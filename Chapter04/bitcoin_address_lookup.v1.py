@@ -76,7 +76,7 @@ def print_transactions(account):
     """
     print_header(account)
     print('Transactions')
-    
+
     for i, tx in enumerate(account['txs']):
         print('Transaction #{}'.format(i))
         print('Transaction Hash:', tx['hash'])
@@ -123,7 +123,7 @@ def get_inputs(tx):
     """
     inputs = []
     for input_addr in tx['inputs']:
-            inputs.append(input_addr['prev_out']['addr'])
+        inputs.append(input_addr['prev_out']['addr'])
     return inputs
 
 if __name__ == '__main__':

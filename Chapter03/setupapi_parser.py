@@ -160,7 +160,7 @@ def get_device_names(usb_dict, device_info):
     """
     device_name = usb_lookup.search_key(
         usb_dict, [device_info['Vendor ID'],
-            device_info['Product ID']])
+                   device_info['Product ID']])
 
     device_info['Vendor Name'] = device_name[0]
     device_info['Product Name'] = device_name[1]
